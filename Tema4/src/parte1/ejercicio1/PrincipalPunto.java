@@ -1,29 +1,45 @@
 package parte1.ejercicio1;
 
+import java.util.Scanner;
+
 public class PrincipalPunto {
 
 	public static void main(String[] args) {
 
-		// Creamos el primer objeto
-		Punto p1 = new Punto();
+		// Creamos un Scanner.
+		Scanner sc = new Scanner(System.in);
 
-		// Creamos el segundo objeto
-		Punto p2 = new Punto();
+		// Declaramos los 3 objetos.
+		Punto p1;
+		Punto p2;
+		Punto p3;
 
-		// Creamos el tercer objeto
-		Punto p3 = new Punto();
+		// Declaramos la variable que almacenará el valor x.
+		int x;
+
+		// Declaramos la variable que almacenará el valor y.
+		int y;
 
 		// Le damos valores al primer punto.
-		p1.x = 5;
-		p1.y = 0;
+		x = 5;
+		y = 0;
+
+		// Creamos el primer objeto.
+		p1 = new Punto(x, y);
 
 		// Le damos valores al segundo punto.
-		p2.x = 10;
-		p2.y = 10;
+		x = 10;
+		y = 10;
+
+		// Creamos el segundo objeto.
+		p2 = new Punto(x, y);
 
 		// Le damos valores al tercer punto.
-		p3.x = -3;
-		p3.y = 7;
+		x = -3;
+		y = 7;
+
+		// Creamos el tercer objeto.
+		p3 = new Punto(x, y);
 
 		// Imprimimos valores.
 		System.out.println("Coordenadas primer punto: " + p1.x + "," + p1.y);
@@ -43,6 +59,9 @@ public class PrincipalPunto {
 		System.out.println("Coordenadas primer punto: " + p1.x + "," + p1.y);
 		System.out.println("Coordenadas segundo punto: " + p2.x + "," + p2.y);
 		System.out.println("Coordenadas tercer punto: " + p3.x + "," + p3.y);
+
+		// Cerramos Scanner.
+		sc.close();
 	}
 
 }

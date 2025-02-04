@@ -5,9 +5,21 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 
-		// Creamos los objetos.
-		Persona per1 = new Persona();
-		Persona per2 = new Persona();
+		// Declaramos los objetos.
+		Persona per1;
+		Persona per2;
+
+		// Declaramos la variable que almacenará el nombre de la persona.
+		String nombre;
+
+		// Declaramos la variable que almacenará el apellido de la persona
+		String apellidos;
+
+		// Declaramos la variable que almacenará la edad.
+		int edad;
+
+		// Declaramos la variable que almacenará el dni.
+		String dni;
 
 		// Creamos un Scanner.
 		Scanner sc = new Scanner(System.in);
@@ -16,52 +28,58 @@ public class Main {
 		System.out.println("Introduce el nombre de la primera persona");
 
 		// Leemos entrada de teclado.
-		per1.nombre = sc.nextLine();
+		nombre = sc.nextLine();
 
 		// Le preguntamos el apellido.
 		System.out.println("Introduce el apellido de la primera persona");
 
 		// Leemos entrada de teclado.
-		per1.apellidos = sc.nextLine();
+		apellidos = sc.nextLine();
 
 		// Le preguntamos el DNI.
 		System.out.println("Introduce el DNI de la primera persona.");
 
 		// Leemos entrada de teclado.
-		per1.dni = sc.nextLine();
+		dni = sc.nextLine();
 
 		// Le preguntamos la edad.
 		System.out.println("Introduce la edad de la primera persona.");
 
 		// Leemos entrada de teclado.
-		per1.edad = sc.nextInt();
+		edad = sc.nextInt();
 
 		// Limpiamos buffer de entrada.
 		sc.nextLine();
+
+		// Creamos el objeto.
+		per1 = new Persona(dni, nombre, apellidos, edad);
 
 		// Le preguntamos el nombre.
 		System.out.println("Introduce el nombre de la segunda persona.");
 
 		// Leemos entrada de teclado.
-		per2.nombre = sc.nextLine();
+		nombre = sc.nextLine();
 
 		// Le preguntamos el apellido.
 		System.out.println("Introduce el apellido de la segunda persona");
 
 		// Leemos entrada de teclado.
-		per2.apellidos = sc.nextLine();
+		apellidos = sc.nextLine();
 
 		// Le preguntamos el DNI.
 		System.out.println("Introduce el DNI de la segunda persona.");
 
 		// Leemos entrada de teclado.
-		per2.dni = sc.nextLine();
+		dni = sc.nextLine();
 
 		// Le preguntamos la edad.
 		System.out.println("Introduce la edad de la segunda persona.");
 
 		// Leemos entrada de teclado.
-		per2.edad = sc.nextInt();
+		edad = sc.nextInt();
+
+		// Creamos el objeto.
+		per2 = new Persona(dni, nombre, apellidos, edad);
 
 		// Imprimimos los objetos.
 		System.out.println(per1.nombre + " " + per1.apellidos + " con DNI " + per1.dni

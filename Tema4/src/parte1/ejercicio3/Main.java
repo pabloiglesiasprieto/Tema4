@@ -3,21 +3,33 @@ package parte1.ejercicio3;
 public class Main {
 	public static void main(String[] args) {
 
-		// Creamos los objetos.
-		Rectangulo rec1 = new Rectangulo();
-		Rectangulo rec2 = new Rectangulo();
+		// Declaramos los objetos.
+		Rectangulo rec1;
+		Rectangulo rec2;
+
+		// Declaramos las variables que almacenarán las coordenadas.
+		int x1;
+		int y1;
+		int x2;
+		int y2;
 
 		// Le damos valores al primer objeto.
-		rec1.x1 = 0;
-		rec1.x2 = 0;
-		rec1.y1 = 5;
-		rec1.y2 = 5;
+		x1 = 0;
+		x2 = 0;
+		y1 = 5;
+		y2 = 5;
+
+		// Creamos el objeto.
+		rec1 = new Rectangulo(x1, y1, x2, y2);
 
 		// Le damos valores al segundo objeto
-		rec2.x1 = 7;
-		rec2.x2 = 9;
-		rec2.y1 = 2;
-		rec2.y2 = 3;
+		x1 = 7;
+		x2 = 9;
+		y1 = 2;
+		y2 = 3;
+
+		// Creamos el objeto.
+		rec2 = new Rectangulo(x1, y1, x2, y2);
 
 		// Imprimimos el primer objeto
 		System.out.println("PRIMER OBJETO:");
