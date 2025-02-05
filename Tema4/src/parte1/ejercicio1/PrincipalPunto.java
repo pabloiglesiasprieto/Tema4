@@ -42,23 +42,23 @@ public class PrincipalPunto {
 		p3 = new Punto(x, y);
 
 		// Imprimimos valores.
-		System.out.println("Coordenadas primer punto: " + p1.x + "," + p1.y);
-		System.out.println("Coordenadas segundo punto: " + p2.x + "," + p2.y);
-		System.out.println("Coordenadas tercer punto: " + p3.x + "," + p3.y);
+		System.out.println("Coordenadas primer punto: " + p1.getX() + "," + p1.getY());
+		System.out.println("Coordenadas segundo punto: " + p2.getX() + "," + p2.getY());
+		System.out.println("Coordenadas tercer punto: " + p3.getX() + "," + p3.getY());
 
 		// Probamos con operadores.
-		p3.x *= -1;
-		p1.y /= 2;
-		p1.x += p3.x;
-		p2.x -= 3;
+		p1.setX(x *= -1);
+		p1.setX(x /= 2);
+		p1.setX(x += p3.getX());
+		p2.setX(x -= 3);
 
 		// Salto de linea.
 		System.out.println();
 
 		// Volvemos a imprimir.
-		System.out.println("Coordenadas primer punto: " + p1.x + "," + p1.y);
-		System.out.println("Coordenadas segundo punto: " + p2.x + "," + p2.y);
-		System.out.println("Coordenadas tercer punto: " + p3.x + "," + p3.y);
+		System.out.println("Coordenadas primer punto: " + p1.getX() + "," + p1.getY());
+		System.out.println("Coordenadas segundo punto: " + p2.getX() + "," + p2.getY());
+		System.out.println("Coordenadas tercer punto: " + p3.getX() + "," + p3.getY());
 
 		// Cerramos Scanner.
 		sc.close();

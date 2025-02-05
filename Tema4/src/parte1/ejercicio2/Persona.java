@@ -1,10 +1,10 @@
 package parte1.ejercicio2;
 
 public class Persona {
-	String dni;
-	String nombre;
-	String apellidos;
-	int edad;
+	private String dni;
+	private String nombre;
+	private String apellidos;
+	private int edad;
 
 	/**
 	 * Creamos el constructor para persona.
@@ -27,6 +27,72 @@ public class Persona {
 		if (edad > 0 && edad < 100)
 			this.edad = edad;
 
+	}
+
+	/**
+	 * Obtener nombre de objeto.
+	 * 
+	 * @return Nombre de la persona.
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * Obtener apellidos de la persona.
+	 * 
+	 * @return Apellido de la persona.
+	 */
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	/**
+	 * Obtener edad de la persona.
+	 * 
+	 * @return Edad de la persona.
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/**
+	 * Obtener dni de la persona.
+	 * 
+	 * @return Dni de la persona.
+	 */
+	public String getDni() {
+		return dni;
+	}
+
+	/**
+	 * Modificar nombre de la persona.
+	 * 
+	 * @param nombre Nombre de la persona.
+	 */
+	public void setNombre(String nombre) {
+		if (nombre != null && nombre.length() < 20 && !nombre.isEmpty())
+			this.nombre = nombre;
+	}
+
+	/**
+	 * Modificar apellidos de la persona.
+	 * 
+	 * @param apellidos Apellidos de la persona.
+	 */
+	public void setApellidos(String apellidos) {
+		if (nombre != null && apellidos.length() < 40 && !apellidos.isEmpty())
+			this.apellidos = apellidos;
+	}
+
+	/**
+	 * Modificar edad de la persona.
+	 * 
+	 * @param edad Edad de la persona.
+	 */
+	public void setEdad(int edad) {
+		if (edad > 0 && edad < 100)
+			this.edad = edad;
 	}
 
 }
