@@ -87,6 +87,9 @@ public class Main {
 		System.out.println(per2.getNombre() + " " + per2.getApellidos() + " con DNI " + per2.getDni()
 				+ (per2.getEdad() >= 18 ? " es mayor de edad" : " no es mayor de edad"));
 
+		// Usamos métodos.
+		System.out.println(per1.toString());
+		System.out.println(per1.diferenciaEdad(per2));
 		// Cerramos el Scanner.
 		sc.close();
 	}

@@ -101,4 +101,61 @@ public class Articulo {
 			this.cuantosQuedan = cuantosQuedan;
 	}
 
+	/**
+	 * Método que calcula el precio con el IVA aplicado.
+	 * 
+	 * @return Devuelve el PVP.
+	 */
+	public double getPVP() {
+		return getPrecio() + ((IVA / 100.0) * getPrecio());
+
+	}
+
+	/**
+	 * Devuelve el precio con un descuento aplicado.
+	 * 
+	 * @param Descuento Parametro de entrada que indica un descuento.
+	 * @return Devuelve el precio con el descuento aplicado.
+	 */
+	public double getPVPDescuento(int descuento) {
+		return (descuento / 100 * getPVP()) + getPVP();
+	}
+
+	/**
+	 * Método que indica si se ha podido vender unidades.
+	 * 
+	 * @param cantidad Cantidad de productos vendidos.
+	 * @return Devuelve un booleano indicando si se ha vendido o no.
+	 */
+	public boolean vender(int cantidad) {
+		boolean vendido = false;
+		if (cuantosQuedan - cantidad >= 0) {
+			cuantosQuedan -= cantidad;
+			vendido = true;
+		}
+		return vendido;
+	}
+
+	/**
+	 * Método que añade una cantidad de productos.
+	 * 
+	 * @param cantidad Cantidad a añadir a la cantidad.
+	 */
+	public void añadir(int cantidad) {
+
+		cuantosQuedan += cantidad;
+
+	}
+
+	/**
+	 * Override método toString();
+	 */
+	public String toString() {
+		String objeto = "";
+		objeto += nombre + " - " + "Precio:" + precio + "€" + " - " + "IVA:" + IVA + "%" + " - " + "PVP:" + getPVP()
+				+ "€";
+		return objeto;
+
+	}
+
 }

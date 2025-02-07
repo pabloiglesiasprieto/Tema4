@@ -60,6 +60,9 @@ public class PrincipalPunto {
 		System.out.println("Coordenadas segundo punto: " + p2.getX() + "," + p2.getY());
 		System.out.println("Coordenadas tercer punto: " + p3.getX() + "," + p3.getY());
 
+		// Probamos los metodos.
+		System.out.println(p1);
+		System.out.println(p1.distancia(p2));
 		// Cerramos Scanner.
 		sc.close();
 	}

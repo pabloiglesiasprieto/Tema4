@@ -41,9 +41,9 @@ public class Main {
 		// Creamos el objeto.
 		art1 = new Articulo(nombre, precio, cuantosQuedan);
 
-		// Imprimimos la información de objeto.
-		System.out.println(art1.getNombre() + " - " + "Precio:" + art1.getPrecio() + "€" + " - " + "IVA:" + Articulo.IVA
-				+ "%" + " - " + "PVP:" + (art1.getPrecio() + ((Articulo.IVA / 100.0) * art1.getPrecio())) + "€");
+		// Imprimimos el articulo.
+		System.out.println(art1);
+
 		// Cerramos el Scanner.
 		sc.close();
 

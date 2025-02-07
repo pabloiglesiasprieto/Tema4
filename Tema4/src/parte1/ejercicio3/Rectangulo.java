@@ -95,4 +95,72 @@ public class Rectangulo {
 		this.y2 = y2;
 	}
 
+	/**
+	 * Setter doble.
+	 * 
+	 * @param x1 valor x1 del rectangulo
+	 * @param y1 valor y1 del rectangulo.
+	 */
+	public void setX1Y1(int x1, int y1) {
+		this.x1 = x1;
+		this.y1 = y1;
+	}
+
+	/**
+	 * Setter doble.
+	 * 
+	 * @param x2 valor x2 del rectangulo
+	 * @param y2 valor y2 del rectangulo.
+	 */
+	public void setX2Y2(int x2, int y2) {
+		this.x2 = x2;
+		this.y2 = y2;
+	}
+
+	/**
+	 * Setter entero.
+	 * 
+	 * @param x1 valor x1 del rectangulo.
+	 * @param y1 valor y1 del rectangulo.
+	 * @param x2 valor x2 del rectangulo.
+	 * @param y2 valor y2 del rectangulo.
+	 */
+	public void setAll(int x1, int y1, int x2, int y2) {
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
+	}
+
+	/**
+	 * Obtiene el perimetro.
+	 * 
+	 * @param rec2 Rectangulo
+	 * @return Devuelve el perimetro.
+	 */
+	public int getPerimetro() {
+		int perimetro;
+		perimetro = 2 * (Math.abs(x2 - x1 + 2 * (Math.abs(y2 - y1))));
+		return perimetro;
+	}
+
+	/**
+	 * Calcula el area.
+	 * 
+	 * @return Devuelve el area del rectangulo.
+	 */
+	public double getArea() {
+		double area;
+		// Calculamos el area.
+		area = Math.abs(x2 - x1 * Math.abs(y2 - y1));
+		return area;
+	}
+
+	public String toString() {
+		String objeto = "";
+		objeto += "OBJETO:\n" + "x1:" + x1 + "\n" + "x2:" + x2 + "\n" + "y1:" + y1 + "\n" + "y2:" + y2 + "\n";
+		objeto += "Area: " + getArea() + "\n";
+		objeto += "Perímetro: " + getPerimetro() + "\n";
+		return objeto;
+	}
 }

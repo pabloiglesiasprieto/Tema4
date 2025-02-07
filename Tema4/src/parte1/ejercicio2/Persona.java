@@ -95,4 +95,43 @@ public class Persona {
 			this.edad = edad;
 	}
 
+	/**
+	 * Comprueba si la persona es mayor de edad.
+	 * 
+	 * @return Devuelve un booleano dependiendo de si es mayor de edad o no.
+	 */
+	public boolean esMayorEdad() {
+		boolean esMayor = edad >= 18 ? true : false;
+
+		return esMayor;
+	}
+
+	/**
+	 * Comprueba la diferencia de edad entre 2 personas.
+	 * 
+	 * @param p Persona.
+	 * @return Devuelve la diferencia de edad entre las 2 personas.
+	 */
+	public int diferenciaEdad(Persona p) {
+		int diferenciaEdad;
+
+		diferenciaEdad = Math.abs(edad - p.edad);
+
+		return diferenciaEdad;
+
+	}
+
+	/**
+	 * Override metodo toString()
+	 */
+	public String toString() {
+		String persona = "";
+		persona += "Nombre: " + nombre + "\n";
+		persona += "Apellidos: " + apellidos + "\n";
+		persona += "Edad: " + edad + "\n";
+		persona += "DNI: " + dni + "\n";
+
+		return persona;
+
+	}
 }

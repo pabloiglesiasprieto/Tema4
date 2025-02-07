@@ -44,17 +44,11 @@ public class Main {
 		System.out.println("Coordenadas: " + "x1:" + rec1.getX1() + " x2:" + rec1.getX2() + " y1:" + rec1.getY1()
 				+ " y2:" + rec1.getY2());
 
-		// Calculamos el perimetro.
-		perimetro = 2 * (Math.abs(rec1.getX2() - rec1.getX1())) + 2 * (Math.abs(rec1.getY2() - rec1.getY1()));
-
 		// Imprimimos el perimetro.
-		System.out.println("Perímetro: " + perimetro);
-
-		// Calculamos el area.
-		area = Math.abs(rec1.getX2() - rec1.getX1()) * Math.abs(rec1.getY2() - rec1.getY1());
+		System.out.println(rec1.getPerimetro());
 
 		// Imprimimos el area.
-		System.out.println("Área: " + area);
+		System.out.println(rec1.getArea());
 
 		// Imprimimos el segundo objeto.
 		System.out.println("SEGUNDO OBJETO");
@@ -63,18 +57,13 @@ public class Main {
 		System.out.println("Coordenadas: " + "x1:" + rec2.getX1() + " x2:" + rec2.getX2() + " y1:" + rec2.getY1()
 				+ " y2:" + rec2.getY2());
 
-		// Calculamos el perimetro.
-		perimetro = 2 * (Math.abs(rec2.getX2() - rec2.getX1())) + 2 * (Math.abs(rec2.getY2() - rec2.getY1()));
-
 		// Imprimimos el perimetro.
-		System.out.println("Perímetro: " + perimetro);
+		System.out.println(rec2.getPerimetro());
 
-		// Calculamos el area.
-		area = Math.abs(rec2.getX2() - rec2.getX1()) * Math.abs(rec2.getY2() - rec2.getY1());
+		System.out.println(rec2.getArea());
 
-		// Imprimimos el area.
-		System.out.println("Área: " + area);
-
+		// Probamos los métodos.
+		System.out.println(rec2);
 	}
 
 }
