@@ -60,14 +60,62 @@ public class CuentaCorriente {
 		return DNI;
 	}
 
+	/**
+	 * Esta función sirve para extraer dinero de la cuenta corriente.
+	 * 
+	 * @param cantidad Parametro de entrada que indica una cantidad a extraer.
+	 * @return Retorna un booleano para indicar si se ha podido extraer el dinero o
+	 *         no.
+	 */
 	public boolean sacarDinero(int cantidad) {
 		boolean extraer = false;
 
 		if (saldo > cantidad) {
-			
+			extraer = true;
+			saldo -= cantidad;
+
 		}
 
 		return extraer;
+
+	}
+
+	/**
+	 * Esta función sirve para ingresar dinero de la cuenta corriente.
+	 * 
+	 * @param cantidad Parametro de entrada que indica una cantidad a ingresar.
+	 * @return Retorna un booleano para indicar si se ha podido ingresar el dinero o
+	 *         no.
+	 */
+	public boolean ingresarDinero(int cantidad) {
+		boolean ingresar = false;
+
+		if (cantidad >= 1) {
+			ingresar = true;
+			saldo += cantidad;
+
+		}
+		return ingresar;
+	}
+
+	/**
+	 * Override método toString().
+	 */
+	public String toString() {
+		String cadena = "";
+		cadena += "DNI: " + DNI + "Nombre: " + nombre + "Saldo: " + saldo + "Nación: " + nacion;
+		return cadena;
+
+	}
+
+	public boolean equals(Object cuenta) {
+		boolean iguales = false;
+
+		cuenta = (CuentaCorriente) cuenta;
+		
+		if (DNI == cuenta.DNI)
+
+		return iguales;
 
 	}
 

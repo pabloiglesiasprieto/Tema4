@@ -28,4 +28,11 @@ public class Main {
 	 * equals: Dos cuentas corrientes se consideran iguales si coinciden el DNI y el
 	 * nombre.
 	 */
+	public static void main(String[] args) {
+
+		CuentaCorriente cc1 = new CuentaCorriente("1", 10);
+
+		System.out.println(cc1.sacarDinero(1) ? "Sacaste dinero" : "No pudiste sacar dinero");
+
+	}
 }

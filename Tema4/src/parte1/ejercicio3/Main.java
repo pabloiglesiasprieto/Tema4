@@ -13,11 +13,6 @@ public class Main {
 		int x2;
 		int y2;
 
-		// Declaramos la variable que almacenará el perimetro.
-		int perimetro;
-
-		// Declaramos la variable que almacenará el área.
-		double area;
 
 		// Le damos valores al primer objeto.
 		x1 = 0;
