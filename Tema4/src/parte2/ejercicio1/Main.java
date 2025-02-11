@@ -30,9 +30,28 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 
-		CuentaCorriente cc1 = new CuentaCorriente("1", 10);
+		// Creamos el objeto cuenta corriente.
+		CuentaCorriente cc1 = new CuentaCorriente("31884793P", "Pedro", 0, "ESPAÑOLA");
 
-		System.out.println(cc1.sacarDinero(1) ? "Sacaste dinero" : "No pudiste sacar dinero");
+		// Imprimimos la información del objeto.
+		System.out.println(cc1);
 
+		// Ingresamos dinero.
+		System.out.println(cc1.ingresarDinero(1000) ? "Ingresaste dinero correctamente" : "Cantidad invalida.");
+
+		// Imprimimos la información del objeto.
+		System.out.println(cc1);
+
+		// Extraemos dinero.
+		System.out.println(cc1.sacarDinero(11110) ? "Extraiste dinero correctamente" : "Cantidad invalida.");
+
+		// Imprimimos la información del objeto.
+		System.out.println(cc1);
+
+		// Creamos el objeto cuenta corriente.
+		CuentaCorriente cc2 = new CuentaCorriente("31884793P", "Pedro", 0, "ESPAÑOLA");
+
+		System.out.println(cc1.equals(cc2) ? "Son iguales" : "No son iguales");
 	}
+
 }
