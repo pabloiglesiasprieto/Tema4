@@ -14,8 +14,8 @@ public class Pizza {
 	};
 
 	private int codigo;
-	private TamañoPizza tamaño;
-	private TipoPizza tipo;
+	private TamañoPizza tamaño = TamañoPizza.MEDIANA;
+	private TipoPizza tipo = TipoPizza.MARGARITA;
 	private EstadoPizza estado = EstadoPizza.PEDIDA;
 
 	/**
@@ -27,16 +27,8 @@ public class Pizza {
 	 */
 	public Pizza(int codigo, String tamaño, String tipo) {
 		this.codigo = codigo;
-		switch (tamaño.toUpperCase()) {
-		case "MEDIANA" -> this.tamaño = TamañoPizza.MEDIANA;
-		case "FAMILIAR" -> this.tamaño = TamañoPizza.FAMILIAR;
-		}
-		switch (tipo.toUpperCase()) {
-		case "CUATROQUESOS" -> this.tipo = TipoPizza.CUATROQUESOS;
-		case "FUNGHI" -> this.tipo = TipoPizza.FUNGHI;
-		case "MARGARITA" -> this.tipo = TipoPizza.MARGARITA;
-
-		}
+		comprobarTamaño(tamaño);
+		comprobarTipo(tipo);
 
 	}
 
@@ -94,4 +86,29 @@ public class Pizza {
 
 	}
 
+	/**
+	 * Función que comprobará el tamaño dado por parámetro de entrada.
+	 * 
+	 * @param tamaño Tamaño de la pizza.
+	 */
+	public void comprobarTamaño(String tamaño) {
+		switch (tamaño.toUpperCase()) {
+		case "MEDIANA" -> this.tamaño = TamañoPizza.MEDIANA;
+		case "FAMILIAR" -> this.tamaño = TamañoPizza.FAMILIAR;
+		}
+	}
+
+	/**
+	 * Función que comprobará el tipo dado por parámetro de entrada.
+	 * 
+	 * @param tipo Tipo de la pizza.
+	 */
+	public void comprobarTipo(String tipo) {
+		switch (tipo.toUpperCase()) {
+		case "CUATROQUESOS" -> this.tipo = TipoPizza.CUATROQUESOS;
+		case "FUNGHI" -> this.tipo = TipoPizza.FUNGHI;
+		case "MARGARITA" -> this.tipo = TipoPizza.MARGARITA;
+
+		}
+	}
 }
