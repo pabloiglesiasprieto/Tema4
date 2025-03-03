@@ -141,9 +141,19 @@ public class Articulo {
 	 * 
 	 * @param cantidad Cantidad a añadir a la cantidad.
 	 */
-	public void añadir(int cantidad) {
+	public void añadir(int cantidad, int nombre) {
 
-		cuantosQuedan += cantidad;
+		// Creamos un for para buscar el articulo.
+		for (Articulo art : Crud.listaArticulos) {
+
+			// Si el nombre es igual al nombre de algunas de los articulos en la lista,
+			// entrará en el condicional.
+			if (art.getNombre().equals(nombre)) {
+
+				// Modificamos las unidades del articulo.
+				art.cuantosQuedan += cantidad;
+			}
+		}
 
 	}
 
@@ -153,7 +163,7 @@ public class Articulo {
 	public String toString() {
 		String objeto = "";
 		objeto += nombre + " - " + "Precio:" + precio + "€" + " - " + "IVA:" + IVA + "%" + " - " + "PVP:" + getPVP()
-				+ "€";
+				+ "€" + " - " + "Unidades:" + cuantosQuedan;
 		return objeto;
 
 	}

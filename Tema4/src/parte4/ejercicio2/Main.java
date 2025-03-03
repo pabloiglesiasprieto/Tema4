@@ -29,6 +29,9 @@ public class Main {
 		// Leemos entrada de teclado.
 		eleccion = sc.next().charAt(0);
 
+		// Limpiamos el buffer.
+		sc.nextLine();
+
 		// Creamos un bucle.
 		while (eleccion != 'g') {
 
@@ -85,14 +88,8 @@ public class Main {
 				// Llamamos a la función que da de baja al artículo.
 				Crud.bajaArticulo(nombre);
 
-				// Le pedimos al usuario que introduzca las unidades.
-				System.out.println("Introduce las nuevas unidades del articulo.");
-
-				// Leemos entrada de teclado.
-				unidades = sc.nextInt();
-
-				// Llamamos a la función que modifica el artículo.
-				Crud.modificarArticulo(nombre, unidades);
+				// Imprimimos que el artículo se ha dado de baja
+				System.out.println("El artículo ha sido dado de baja");
 
 				// Rompemos el case.
 				break;
@@ -107,12 +104,39 @@ public class Main {
 				// Leemos entrada de teclado.
 				nombre = sc.nextLine();
 
+				// Le pedimos al usuario que introduzca las unidades.
+				System.out.println("Introduce las nuevas unidades del articulo.");
+
+				// Leemos entrada de teclado.
+				unidades = sc.nextInt();
+
+				// Llamamos a la función que modifica el artículo.
+				Crud.modificarArticulo(nombre, unidades);
+
 				// Rompemos el case.
 				break;
 			}
 
 			// Case e
 			case 'e' -> {
+
+				// Le preguntamos al usuario cual es el nombre del artículo.
+				System.out.println("¿Cuál es el nombre del artículo que ha entrado?");
+
+				// Leemos entrada de teclado.
+				nombre = sc.nextLine();
+
+				// Preguntamos la cantidad que ha llegado.
+				System.out.println("Cuánta cantidad ha entrado");
+
+				// Leemos entrada de teclado.
+				unidades = sc.nextInt();
+
+				// Llamamos a la función.
+				Crud.entradaMercancia(nombre, unidades);
+
+				// Imprimimos que la cantidad ha sido incrementada correctamente
+				System.out.println("La cantidad ha sido incrementada correctamente");
 
 				// Rompemos el case.
 				break;
@@ -121,10 +145,36 @@ public class Main {
 			// Case f
 			case 'f' -> {
 
+				// Le preguntamos al usuario cual es el nombre del artículo.
+				System.out.println("¿Cuál es el nombre del artículo que ha salido?");
+
+				// Leemos entrada de teclado.
+				nombre = sc.nextLine();
+
+				// Preguntamos la cantidad que ha salido.
+				System.out.println("Cuánta cantidad ha salido");
+
+				// Leemos entrada de teclado.
+				unidades = sc.nextInt();
+
+				// Llamamos a la función.
+				Crud.salidaMercancia(nombre, unidades);
+
+				// Imprimimos que ha salido correctamente.
+				System.out.println("La cantidad ha salido correctamente.");
+
 				// Rompemos el case.
 				break;
 			}
 			}
+			// Imprimimos el menú.
+			imprimirMenu();
+
+			// Leemos entrada de teclado.
+			eleccion = sc.next().charAt(0);
+
+			// Limpiamos el buffer.
+			sc.nextLine();
 
 		}
 		// Imprimimos salida de programa.
