@@ -56,6 +56,9 @@ public class Main {
 				// Leemos entrada de teclado.
 				codigo = sc.nextInt();
 
+				// Limpiamos el buffer.
+				sc.nextLine();
+
 				// Pedimos al usuario que introduzca el tipo de la Pizza.
 				System.out.println("Introduce el tipo de la Pizza");
 
@@ -68,11 +71,8 @@ public class Main {
 				// Leemos entrada de teclado.
 				tamaño = sc.nextLine();
 
-				// Limpiamos buffer.
-				sc.nextLine();
-
 				// Llamamos al método para añadir el alumno.
-				Crud.mostrarPizzas();
+				Crud.añadirPizza(codigo, tamaño, tipo);
 
 				// Rompemos el case.
 				break;
@@ -80,35 +80,14 @@ public class Main {
 			// Tercer case.
 			case 3 -> {
 
-				// Preguntamos el nombre del alumno.
-				System.out.println("Introduce el nombre del alumno");
-
-				// Leemos entrada de teclado.
-				nombre = sc.nextLine();
-
-				// Preguntamos la nueva media.
-				System.out.println("Introduce la nueva media");
-
-				// Leemos entrada de teclado.
-				media = sc.nextDouble();
-
-				// Llamamos a la función que modifica al alumno.
-				Crud.modificarAlumno(nombre, media);
-
-				// Rompemos el case.
-				break;
-			}
-			// Cuarto case.
-			case 4 -> {
-
 				// Preguntamos el código de la persona a borrar.
-				System.out.println("Introduce el nombre de la persona a borrar");
+				System.out.println("Introduce el código de la pizza servida");
 
 				// Leemos entrada de teclado.
-				nombre = sc.nextLine();
+				codigo = sc.nextInt();
 
-				// Llamamos a la función que borrará el alumno.
-				Crud.borrarAlumno(nombre);
+				// Llamamos a la función que borrará la pizza.
+				Crud.servirPizza(codigo);
 
 				// Rompemos el case.
 				break;
@@ -131,9 +110,12 @@ public class Main {
 		sc.close();
 	}
 
+	/**
+	 * Función que imprime el menú de switch
+	 */
 	public static void imprimirMenu() {
 
-		System.out.println("ELIGE LA OPCIÓN:\n1. Listado de pizzas\r\n" + "2. Nuevo pedido\r\n" + "3. Pizza servida\r\n"
+		System.out.print("ELIGE LA OPCIÓN:\n1. Listado de pizzas\r\n" + "2. Nuevo pedido\r\n" + "3. Pizza servida\r\n"
 				+ "4. Salir\r\n" + "");
 
 	}

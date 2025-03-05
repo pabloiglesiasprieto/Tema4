@@ -33,6 +33,21 @@ public class Pizza {
 	}
 
 	/**
+	 * Este constructor sirve para crear una pizza con solo el código.
+	 * 
+	 * @param codigo
+	 */
+	public Pizza(int codigo) {
+
+		// Si el código es positivo, se asignará el valor.
+		if (codigo > 0) {
+
+			// Le damos al objeto el valor del parametro de entrada.
+			this.codigo = codigo;
+		}
+	}
+
+	/**
 	 * Getter de código
 	 * 
 	 * @return Devuelve el codigo de la pizza
