@@ -85,7 +85,11 @@ public class Main {
 				genero = sc.nextLine();
 
 				// Llamamos a la función que crea el disco.
-				Crud.agregarDisco(codigo, autor, titulo, duracion, genero);
+				if (Crud.agregarDisco(codigo, autor, titulo, duracion, genero)) {
+					System.out.println("El disco ha sido agregado.");
+				} else {
+					System.out.println("El disco no ha sido agregado.");
+				}
 
 			}
 			// Tercer case.

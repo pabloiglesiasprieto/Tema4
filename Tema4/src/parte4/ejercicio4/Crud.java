@@ -35,13 +35,13 @@ public class Crud {
 	 * @param duracion Duración del disco.
 	 * @param genero   Género del disco.
 	 */
-	public static void agregarDisco(int codigo, String autor, String titulo, String duracion, String genero) {
+	public static boolean agregarDisco(int codigo, String autor, String titulo, String duracion, String genero) {
 
 		// Creamos el objeto.
 		Disco d1 = new Disco(codigo, autor, titulo, duracion, genero);
 
 		// Lo añadimos a la colección.
-		listaDiscos.add(d1);
+		return listaDiscos.add(d1);
 
 	}
 
