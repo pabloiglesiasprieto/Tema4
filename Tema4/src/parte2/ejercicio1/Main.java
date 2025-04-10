@@ -1,57 +1,108 @@
 package parte2.ejercicio1;
 
+import parte2.ejercicio1.excepciones.WrongDNIException;
+import parte2.ejercicio1.excepciones.WrongInitialSaldoException;
+import parte2.ejercicio1.excepciones.WrongNombreException;
+
+import java.util.Scanner;
+
 public class Main {
-	/*
-	 * Diseñar la clase CuentaCorriente, que almacena los datos DNI, nombre, saldo y
-	 * nacionalidad, el cual tendrá 2 valores: Española y Extranjera.
-	 * 
-	 * Añade los siguientes constructores: Con el DNI del titular de la cuenta y un
-	 * saldo inicial.
-	 * 
-	 * Con el DNI, nombre y el saldo inicial. Con el DNI, nombre, el saldo inicial y
-	 * nacionalidad.
-	 * 
-	 * Añade los getters/setters que consideres oportunos.
-	 * 
-	 * Las operaciones típicas de una cuenta corriente son:
-	 * 
-	 * Sacar dinero: se extraerá una cantidad de dinero introducida por parámetro.
-	 * Sólo se puede sacar dinero si existe saldo suficiente. Si es posible llevar a
-	 * cabo la operación se resta la cantidad a sacar al saldo de la cuenta y
-	 * devolverá true. En caso contrario, no se podrá sacar dinero y devolverá
-	 * false. Ingresar dinero: se incrementa el saldo. Hay que comprobar que el
-	 * saldo a ingresar es una cantidad positiva. Devolverá true si se puede llevar
-	 * a cabo la operación y false en caso contrario.
-	 * 
-	 * toString: Devuelve una cadena con la información de la cuenta corriente.
-	 * 
-	 * equals: Dos cuentas corrientes se consideran iguales si coinciden el DNI y el
-	 * nombre.
-	 */
+
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		CuentaCorriente cuenta = null;
 
-		// Creamos el objeto cuenta corriente.
-		CuentaCorriente cc1 = new CuentaCorriente("31884793P", "Pedro", 0, "ESPAÑOLA");
+		// Mostrar menú inicial
+		while (true) {
+			System.out.println("===== MENÚ =====");
+			System.out.println("1. Crear cuenta corriente");
+			System.out.println("2. Ingresar dinero");
+			System.out.println("3. Sacar dinero");
+			System.out.println("4. Mostrar información de la cuenta");
+			System.out.println("0. Salir");
+			System.out.print("Seleccione una opción: ");
 
-		// Imprimimos la información del objeto.
-		System.out.println(cc1);
+			int opcion = scanner.nextInt();
+			scanner.nextLine(); // Limpiar el buffer
 
-		// Ingresamos dinero.
-		System.out.println(cc1.ingresarDinero(1000) ? "Ingresaste dinero correctamente" : "Cantidad invalida.");
+			switch (opcion) {
+			case 1:
+				// Crear cuenta corriente
+				try {
+					System.out.print("Ingrese el DNI del titular: ");
+					String dni = scanner.nextLine();
 
-		// Imprimimos la información del objeto.
-		System.out.println(cc1);
+					System.out.print("Ingrese el nombre del titular: ");
+					String nombre = scanner.nextLine();
 
-		// Extraemos dinero.
-		System.out.println(cc1.sacarDinero(11110) ? "Extraiste dinero correctamente" : "Cantidad invalida.");
+					System.out.print("Ingrese el saldo inicial: ");
+					double saldo = scanner.nextDouble();
+					scanner.nextLine(); // Limpiar el buffer
 
-		// Imprimimos la información del objeto.
-		System.out.println(cc1);
+					System.out.print("Ingrese la nacionalidad (ESPAÑOLA/EXTRANJERA): ");
+					String nacionalidad = scanner.nextLine().toUpperCase();
 
-		// Creamos el objeto cuenta corriente.
-		CuentaCorriente cc2 = new CuentaCorriente("31884793P", "Pedro", 0, "ESPAÑOLA");
+					cuenta = new CuentaCorriente(dni, nombre, saldo, nacionalidad);
+					System.out.println("Cuenta creada con éxito.");
+				} catch (Exception e) {
+					System.out.println("Error al crear la cuenta: " + e.getMessage());
+				}
+				break;
 
-		System.out.println(cc1.equals(cc2) ? "Son iguales" : "No son iguales");
+			case 2:
+				// Ingresar dinero
+				if (cuenta == null) {
+					System.out.println("Primero debe crear una cuenta.");
+				} else {
+					System.out.print("Ingrese la cantidad a ingresar: ");
+					double cantidadIngreso = scanner.nextDouble();
+					scanner.nextLine(); // Limpiar el buffer
+
+					if (cuenta.ingresarDinero(cantidadIngreso)) {
+						System.out.println("Ingreso realizado correctamente.");
+					} else {
+						System.out.println("Cantidad inválida.");
+					}
+				}
+				break;
+
+			case 3:
+				// Sacar dinero
+				if (cuenta == null) {
+					System.out.println("Primero debe crear una cuenta.");
+				} else {
+					System.out.print("Ingrese la cantidad a sacar: ");
+					double cantidadRetiro = scanner.nextDouble();
+					scanner.nextLine(); // Limpiar el buffer
+
+					if (cuenta.sacarDinero(cantidadRetiro)) {
+						System.out.println("Retiro realizado correctamente.");
+					} else {
+						System.out.println("No hay suficiente saldo o cantidad inválida.");
+					}
+				}
+				break;
+
+			case 4:
+				// Mostrar información de la cuenta
+				if (cuenta == null) {
+					System.out.println("Primero debe crear una cuenta.");
+				} else {
+					System.out.println(cuenta);
+				}
+				break;
+
+			case 0:
+				// Salir
+				System.out.println("Saliendo del programa...");
+				scanner.close();
+				return;
+
+			default:
+				System.out.println("Opción no válida. Intente de nuevo.");
+			}
+
+			System.out.println(); // Línea en blanco para mejorar la presentación
+		}
 	}
-
 }

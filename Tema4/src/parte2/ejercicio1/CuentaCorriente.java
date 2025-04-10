@@ -1,5 +1,9 @@
 package parte2.ejercicio1;
 
+import parte2.ejercicio1.excepciones.WrongDNIException;
+import parte2.ejercicio1.excepciones.WrongInitialSaldoException;
+import parte2.ejercicio1.excepciones.WrongNombreException;
+
 public class CuentaCorriente {
 	/**
 	 * DNI del dueño de la cuenta.
@@ -13,7 +17,7 @@ public class CuentaCorriente {
 	/**
 	 * Saldo de la cuenta.
 	 */
-	private int saldo;
+	private double saldo;
 
 	/**
 	 * Nacionalidad de la cuenta.
@@ -32,12 +36,22 @@ public class CuentaCorriente {
 	 * 
 	 * @param DNI   DNI de la persona.
 	 * @param saldo Saldo de la persona.
+	 * @throws WrongDNIException          Excepcion que lanza que el dni es
+	 *                                    invalido.
+	 * @throws WrongInitialSaldoException Excepción que indica que el saldo es
+	 *                                    invalido.
 	 */
-	public CuentaCorriente(String DNI, int saldo) {
-		if (DNI.length() == 9 && DNI != null)
+	public CuentaCorriente(String DNI, int saldo) throws WrongDNIException, WrongInitialSaldoException {
+		if (DNI != null && DNI.length() == 9) {
 			this.DNI = DNI;
-		if (saldo >= 0)
+		} else {
+			throw new WrongDNIException();
+		}
+		if (saldo >= 0) {
 			this.saldo = saldo;
+		} else {
+			throw new WrongInitialSaldoException();
+		}
 	}
 
 	/**
@@ -46,30 +60,59 @@ public class CuentaCorriente {
 	 * @param DNI    DNI de la persona.
 	 * @param nombre Nombre de la persona.
 	 * @param saldo  Saldo de la persona.
+	 * @throws WrongDNIException
+	 * @throws WrongInitialSaldoException
+	 * @throws WrongNombreException
 	 */
-	public CuentaCorriente(String DNI, String nombre, int saldo) {
-		this.DNI = DNI;
-		this.nombre = nombre;
-		this.saldo = saldo;
+	public CuentaCorriente(String DNI, String nombre, int saldo)
+			throws WrongDNIException, WrongInitialSaldoException, WrongNombreException {
+		if (DNI != null && DNI.length() == 9) {
+			this.DNI = DNI;
+		} else {
+			throw new WrongDNIException();
+		}
+		if (saldo >= 0) {
+			this.saldo = saldo;
+		} else {
+			throw new WrongInitialSaldoException();
+		}
+		if (nombre != null && !nombre.isBlank()) {
+			this.nombre = nombre;
+		} else {
+			throw new WrongNombreException();
+		}
+
 	}
 
 	/**
-	 * Constructor para la clase CuentaCorriente
+	 * Constructor para la clase CuentaCorriente.
 	 * 
 	 * @param DNI    DNI de la persona.
 	 * @param nombre Nombre de la persona.
 	 * @param saldo  Saldo de la persona.
-	 * @param nacion Nación de la persona.
+	 * @throws WrongDNIException
+	 * @throws WrongInitialSaldoException
+	 * @throws WrongNombreException
 	 */
-	public CuentaCorriente(String DNI, String nombre, int saldo, String nacion) {
-		this.DNI = DNI;
-		this.saldo = saldo;
-		switch (nacion) {
-
-		case "ESPAÑOLA" -> this.nacion = Nacionalidad.ESPAÑOLA;
-		default -> this.nacion = Nacionalidad.EXTRANJERA;
+	public CuentaCorriente(String DNI, String nombre, double saldo, String nacion)
+			throws WrongDNIException, WrongInitialSaldoException, WrongNombreException {
+		if (DNI != null && DNI.length() == 9) {
+			this.DNI = DNI;
+		} else {
+			throw new WrongDNIException();
 		}
-		;
+		if (saldo >= 0) {
+			this.saldo = saldo;
+		} else {
+			throw new WrongInitialSaldoException();
+		}
+		if (nombre != null && !nombre.isBlank()) {
+			this.nombre = nombre;
+		} else {
+			throw new WrongNombreException();
+		}
+		this.nacion = Nacionalidad.valueOf(nacion);
+
 	}
 
 	/**
@@ -116,7 +159,7 @@ public class CuentaCorriente {
 	 * 
 	 * @return Devuelve saldo de la cuenta.
 	 */
-	public int getSaldo() {
+	public double getSaldo() {
 		return saldo;
 	}
 
@@ -146,7 +189,7 @@ public class CuentaCorriente {
 	 * @return Retorna un booleano para indicar si se ha podido extraer el dinero o
 	 *         no.
 	 */
-	public boolean sacarDinero(int cantidad) {
+	public boolean sacarDinero(double cantidad) {
 		boolean extraer = false;
 
 		if (saldo > cantidad) {
@@ -166,7 +209,7 @@ public class CuentaCorriente {
 	 * @return Retorna un booleano para indicar si se ha podido ingresar el dinero o
 	 *         no.
 	 */
-	public boolean ingresarDinero(int cantidad) {
+	public boolean ingresarDinero(double cantidad) {
 		boolean ingresar = false;
 
 		if (cantidad >= 1) {
